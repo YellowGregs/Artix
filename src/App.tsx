@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Falcon from './pages/Falcon';
 import Astralis from './pages/Astralis';
+import Developers from './pages/Developers';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/falcon" element={<Falcon />} />
           <Route path="/astralis" element={<Astralis />} />
+          <Route path="/developers" element={<Developers />} />
         </Routes>
       </div>
     </Router>

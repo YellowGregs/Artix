@@ -1,18 +1,33 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Download, Shield, Zap, Terminal, CheckCircle, Key, Code2 } from 'lucide-react';
+import DownloadModal from '../components/DownloadModal';
+import NotificationToast from '../components/NotificationToast';
 
 const Falcon = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [notification, setNotification] = useState({
+    show: false,
+    message: '',
+    type: 'success' as const,
+  });
 
   const downloadExecutor = () => {
-    // In a real implementation, this would handle the download
-    alert('Download is still in development');
+    setNotification({
+      show: true,
+      message: 'Download is still in development',
+      type: 'warning',
+    });
   };
 
   return (
-    <div className="pt-32 px-4 min-h-screen bg-gray-900">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black flex items-center justify-center px-4">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-cyan-900/20 via-gray-900/0 to-cyan-900/20 pointer-events-none"></div>
+      
+      <div className="absolute inset-0 bg-black/60"></div>
+      
+      <div className="max-w-6xl w-full py-32 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -20,11 +35,11 @@ const Falcon = () => {
         >
           <div className="inline-block">
             <div className="flex items-center gap-3 mb-6">
-              <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-sm font-medium flex items-center gap-2">
+              <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-sm font-medium border border-green-500/20 flex items-center gap-2">
                 <CheckCircle size={16} />
                 Working
               </span>
-              <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-sm font-medium">
+              <span className="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium border border-cyan-500/20">
                 Version 1.0.0
               </span>
             </div>
@@ -39,8 +54,8 @@ const Falcon = () => {
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowPassword(!showPassword)}
               className="inline-flex items-center gap-2 px-6 py-2 bg-black text-white rounded-xl font-medium
-                hover:bg-gray-900 border border-gray-700 hover:border-gray-600
-                transition-colors duration-300"
+                hover:bg-gray-900 border border-gray-800 hover:border-gray-700
+                transition-all duration-300 shadow-lg hover:shadow-cyan-500/10"
             >
               <Key className="w-4 h-4" />
               {showPassword ? 'Hide Password' : 'Show Password'}
@@ -51,16 +66,16 @@ const Falcon = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-gray-300 mb-4"
               >
-                Password: <span className="font-mono bg-gray-800 px-2 py-1 rounded">urdad</span>
+                Password: <span className="font-mono bg-black px-2 py-1 rounded border border-gray-800">urdad</span>
               </motion.div>
             )}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={downloadExecutor}
+              onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white rounded-xl font-semibold 
-                hover:bg-gray-900 border border-gray-700 hover:border-gray-600
-                transition-colors duration-300 shadow-lg"
+                hover:bg-gray-900 border border-gray-800 hover:border-gray-700
+                transition-all duration-300 shadow-lg hover:shadow-cyan-500/10"
             >
               <Download className="w-5 h-5" />
               Download Falcon
@@ -86,6 +101,19 @@ const Falcon = () => {
           />
         </div>
       </div>
+
+      <DownloadModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onDownload={downloadExecutor}
+      />
+
+      <NotificationToast
+        show={notification.show}
+        message={notification.message}
+        type={notification.type}
+        onClose={() => setNotification({ ...notification, show: false })}
+      />
     </div>
   );
 };
@@ -95,11 +123,12 @@ const FeatureCard = ({ icon: Icon, title, description }: { icon: any; title: str
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     whileHover={{ y: -5 }}
-    className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50"
+    className="bg-black/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800 hover:border-cyan-500/30
+      transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/5 group"
   >
     <div className="flex items-center gap-4 mb-4">
-      <div className="p-3 rounded-xl bg-blue-500/10">
-        <Icon className="w-6 h-6 text-blue-400" />
+      <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 group-hover:bg-cyan-500/20 transition-all duration-300">
+        <Icon className="w-6 h-6 text-cyan-400" />
       </div>
       <h3 className="text-xl font-semibold text-white">{title}</h3>
     </div>
