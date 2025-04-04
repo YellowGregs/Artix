@@ -7,84 +7,106 @@ const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gray-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Gradient Blobs */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="blob-1"></div>
-        <div className="blob-2"></div>
+        <div className="absolute w-[800px] h-[800px] -top-[200px] -right-[200px] rounded-full 
+          bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.15),transparent_70%)] 
+          blur-3xl opacity-70 animate-blob"></div>
+        <div className="absolute w-[600px] h-[600px] -bottom-[100px] -left-[100px] rounded-full 
+          bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.1),transparent_70%)] 
+          blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
       </div>
-      
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="relative z-10 text-center space-y-12"
-      >
-        <div className="flex flex-col items-center space-y-6">
-          <motion.div 
-            className="relative"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <img 
-              src="https://files.catbox.moe/ctb0a1.png" 
-              alt="Artix Logo" 
-              className="w-32 h-32 object-contain"
-            />
-            <div className="absolute inset-0 bg-blue-500/20 rounded-full filter blur-xl animate-pulse"></div>
-          </motion.div>
-          <motion.h1 
-            className="text-6xl md:text-8xl font-bold text-white"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            Artix
-          </motion.h1>
-        </div>
-        <motion.p 
-          className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto px-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          Nothing
-        </motion.p>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4">
         <motion.div 
-          className="flex flex-col sm:flex-row items-center justify-center gap-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
+          transition={{ duration: 0.8 }}
+          className="text-center space-y-12"
         >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => navigate('/falcon')}
-            className="group relative px-8 py-3 bg-black text-white rounded-xl font-semibold 
-              transform transition-all duration-300 hover:bg-gray-900
-              border border-gray-700 hover:border-gray-600
-              focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+          {/* Logo Section */}
+          <motion.div 
+            className="flex flex-col items-center space-y-8"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="flex items-center gap-2">
-              <Terminal className="w-5 h-5" />
-              Falcon Executor
-            </span>
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => navigate('/astralis')}
-            className="group relative px-8 py-3 bg-black text-white rounded-xl font-semibold 
-              transform transition-all duration-300 hover:bg-gray-900
-              border border-gray-700 hover:border-gray-600
-              focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+            <div className="relative group">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative"
+              >
+                <img 
+                  src="https://files.catbox.moe/ctb0a1.png" 
+                  alt="Artix Logo" 
+                  className="w-40 h-40 object-contain relative z-10"
+                />
+                <div className="absolute inset-0 bg-cyan-500/20 rounded-full filter blur-2xl 
+                  group-hover:blur-3xl transition-all duration-300"></div>
+              </motion.div>
+            </div>
+            <motion.h1 
+              className="text-7xl md:text-8xl font-bold bg-clip-text text-transparent 
+                bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-200"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              Artix
+            </motion.h1>
+          </motion.div>
+
+          {/* Description */}
+          <motion.p 
+            className="text-xl md:text-2xl text-gray-300/90 max-w-2xl mx-auto leading-relaxed"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
           >
-            <span className="flex items-center gap-2">
-              <Code2 className="w-5 h-5" />
-              Astralis Scripts
-            </span>
-          </motion.button>
+            Experience the next generation of development tools with our powerful ecosystem
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div 
+            className="flex flex-col sm:flex-row items-center justify-center gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+          >
+            <motion.button
+              whileHover={{ scale: 1.05, backgroundColor: 'rgba(34, 211, 238, 0.2)' }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/falcon')}
+              className="group relative px-8 py-4 bg-cyan-500/10 rounded-2xl font-semibold 
+                border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300"
+            >
+              <span className="flex items-center gap-3 text-cyan-400 group-hover:text-cyan-300 transition-colors">
+                <Terminal className="w-5 h-5" />
+                Falcon Executor
+              </span>
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-transparent 
+                opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10"></div>
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.05, backgroundColor: 'rgba(34, 211, 238, 0.2)' }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/astralis')}
+              className="group relative px-8 py-4 bg-cyan-500/10 rounded-2xl font-semibold 
+                border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300"
+            >
+              <span className="flex items-center gap-3 text-cyan-400 group-hover:text-cyan-300 transition-colors">
+                <Code2 className="w-5 h-5" />
+                Astralis Scripts
+              </span>
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-transparent 
+                opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10"></div>
+            </motion.button>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };
