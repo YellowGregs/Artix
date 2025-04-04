@@ -76,6 +76,30 @@ const Home = () => {
               </p>
             </div>
 
+            <div>
+              <h3 className="text-cyan-400 font-semibold mb-4">Community</h3>
+              <div className="space-y-3">
+                <a
+                  href="https://discord.gg/pJVdNJ7D3e"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors duration-200"
+                >
+                  <FaDiscord className="w-5 h-5" />
+                  Falcon Discord
+                </a>
+                <a
+                  href="https://discord.gg/4CuKnsaXPc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors duration-200"
+                >
+                  <FaDiscord className="w-5 h-5" />
+                  Astralis Discord
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
       </footer>
