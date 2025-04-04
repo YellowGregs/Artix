@@ -1,201 +1,153 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home, Terminal, Code2, Users } from 'lucide-react';
+import React from 'react';
+import Hero from '../components/Hero';
+import { motion } from 'framer-motion';
+import { Terminal, Code2, User } from 'lucide-react';
 import { FaDiscord } from 'react-icons/fa';
-import { motion, AnimatePresence } from 'framer-motion';
 
-const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+const Home = () => {
   return (
-    <motion.div 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 100 }}
-      className="fixed w-full z-50 flex justify-center pt-6 px-4"
-    >
-      <nav 
-        className={`relative flex items-center justify-between w-full max-w-4xl mx-auto rounded-2xl transition-all duration-500 
-          ${scrolled 
-            ? 'bg-black/90 backdrop-blur-md border border-gray-800 shadow-lg' 
-            : 'bg-black/50 backdrop-blur-sm border border-gray-800/30'
-          } px-4 md:px-8 py-4`}
-      >
-        <Link to="/" className="flex items-center group">
-          <motion.img 
-            whileHover={{ scale: 1.1, rotate: 360 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            src="https://files.catbox.moe/ctb0a1.png" 
-            alt="Logo" 
-            className="h-8 w-auto"
-          />
-        </Link>
+    <div className="bg-black relative">
+      <div className="absolute inset-0 bg-black">
+        <div className="absolute w-[1000px] h-[1000px] -top-[400px] -right-[400px] rounded-full 
+          bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.1),transparent_70%)] 
+          blur-3xl opacity-60 animate-blob"></div>
+        <div className="absolute w-[800px] h-[800px] top-[200px] -left-[300px] rounded-full 
+          bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.08),transparent_70%)] 
+          blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+        <div className="absolute w-[600px] h-[600px] bottom-[100px] right-[100px] rounded-full 
+          bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.12),transparent_70%)] 
+          blur-3xl opacity-40 animate-blob animation-delay-4000"></div>
+      </div>
+      
+      <Hero />
+      
+      <section className="relative py-32 px-4">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-cyan-200 mb-6">
+              About Us
+            </h2>
+            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+              Nothing
+            </p>
+          </motion.div>
 
-        <div className="hidden md:flex items-center space-x-8">
-          <NavLink to="/" current={location.pathname === "/"} icon={Home}>
-            Home
-          </NavLink>
-          <NavLink to="/falcon" current={location.pathname === "/falcon"} icon={Terminal}>
-            Falcon
-          </NavLink>
-          <NavLink to="/astralis" current={location.pathname === "/astralis"} icon={Code2}>
-            Astralis
-          </NavLink>
-          <NavLink to="/developers" current={location.pathname === "/developers"} icon={Users}>
-            Developers
-          </NavLink>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <FeatureCard
+              icon={Terminal}
+              title="Falcon Executor"
+              description="A Executor"
+              delay={0}
+            />
+            <FeatureCard
+              icon={Code2}
+              title="Astralis Scripts"
+              description="A Script"
+              delay={0.2}
+            />
+            <FeatureCard
+              icon={User}
+              title="Community"
+              description="Join the Discord server to share ideas, and get support when you need it."
+              delay={0.4}
+            />
+          </div>
         </div>
+      </section>
 
-        <div className="hidden md:flex items-center space-x-4">
-          <DiscordButton
-            href="https://discord.gg/pJVdNJ7D3e"
-            title="Join Falcon Discord"
-            className="bg-black hover:bg-gray-900 border border-gray-800 hover:border-gray-700"
-          />
-          <DiscordButton
-            href="https://discord.gg/4CuKnsaXPc"
-            title="Join Astralis Discord"
-            className="bg-black hover:bg-gray-900 border border-gray-800 hover:border-gray-700"
-          />
-        </div>
-
-        <motion.button
-          whileTap={{ scale: 0.95 }}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden inline-flex items-center justify-center p-2 rounded-xl bg-black hover:bg-gray-900 
-            transition-colors duration-200 border border-gray-800"
-        >
-          {isMenuOpen ? <X size={20} className="text-white" /> : <Menu size={20} className="text-white" />}
-        </motion.button>
-
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ type: "spring", stiffness: 200 }}
-              className="absolute top-full right-0 left-0 mt-4"
-            >
-              <div className="bg-black/95 backdrop-blur-lg rounded-2xl p-4 mx-4 border border-gray-800 shadow-xl">
-                <div className="space-y-3">
-                  <MobileNavLink to="/" onClick={() => setIsMenuOpen(false)} current={location.pathname === "/"} icon={Home}>
-                    Home
-                  </MobileNavLink>
-                  <MobileNavLink to="/falcon" onClick={() => setIsMenuOpen(false)} current={location.pathname === "/falcon"} icon={Terminal}>
-                    Falcon
-                  </MobileNavLink>
-                  <MobileNavLink to="/astralis" onClick={() => setIsMenuOpen(false)} current={location.pathname === "/astralis"} icon={Code2}>
-                    Astralis
-                  </MobileNavLink>
-                  <MobileNavLink to="/developers" onClick={() => setIsMenuOpen(false)} current={location.pathname === "/developers"} icon={Users}>
-                    Developers
-                  </MobileNavLink>
-                  <div className="flex justify-center gap-4 pt-4 border-t border-gray-800">
-                    <MobileDiscordButton
-                      href="https://discord.gg/pJVdNJ7D3e"
-                      title="Join Falcon Discord"
-                      className="bg-black hover:bg-gray-900 border border-gray-800"
-                    />
-                    <MobileDiscordButton
-                      href="https://discord.gg/4CuKnsaXPc"
-                      title="Join Astralis Discord"
-                      className="bg-black hover:bg-gray-900 border border-gray-800"
-                    />
-                  </div>
-                </div>
+      <footer className="relative border-t border-cyan-500/20 bg-black/80 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <img src="https://files.catbox.moe/ctb0a1.png" alt="Logo" className="h-8 w-auto" />
+                <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-200">
+                  Artix
+                </span>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
+              <p className="text-gray-400 text-sm">
+                The Descriptions.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-cyan-400 font-semibold mb-4">Community</h3>
+              <div className="space-y-3">
+                <a
+                  href="https://discord.gg/pJVdNJ7D3e"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors duration-200"
+                >
+                  <FaDiscord className="w-5 h-5" />
+                  Falcon Discord
+                </a>
+                <a
+                  href="https://discord.gg/4CuKnsaXPc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors duration-200"
+                >
+                  <FaDiscord className="w-5 h-5" />
+                  Astralis Discord
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+const FeatureCard = ({ icon: Icon, title, description, delay }: { icon: any; title: string; description: string; delay: number }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      whileHover={{ y: -5, scale: 1.02 }}
+      className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-black to-black/50 
+        border border-cyan-500/20 p-8 transition-all duration-300"
+    >
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 
+        group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 bg-gradient-radial from-cyan-500/5 via-transparent to-transparent opacity-0 
+        group-hover:opacity-100 transition-opacity duration-300"></div>
+      
+      {/* Content */}
+      <div className="relative z-10">
+        <div className="flex items-center gap-4 mb-6">
+          <motion.div
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            className="p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/20 
+              group-hover:bg-cyan-500/20 group-hover:border-cyan-500/30 transition-all duration-300
+              shadow-lg shadow-cyan-500/5 group-hover:shadow-cyan-500/10"
+          >
+            <Icon className="w-6 h-6 text-cyan-400" />
+          </motion.div>
+          <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r 
+            from-cyan-400 to-cyan-200 group-hover:to-cyan-300 transition-colors duration-300">
+            {title}
+          </h3>
+        </div>
+        <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">{description}</p>
+      </div>
+
+      {/* Hover Effect */}
+      <div className="absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300
+        bg-gradient-to-r from-cyan-500/20 via-cyan-500/10 to-transparent blur-xl pointer-events-none"></div>
     </motion.div>
   );
 };
 
-const NavLink = ({ to, children, current, icon: Icon }: { to: string; children: React.ReactNode; current: boolean; icon: any }) => (
-  <Link
-    to={to}
-    className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 hover:text-white group flex items-center gap-2 ${
-      current ? 'text-white' : 'text-gray-300'
-    }`}
-  >
-    <Icon size={16} />
-    {children}
-    <motion.div
-      initial={false}
-      animate={current ? { opacity: 1, width: '100%' } : { opacity: 0, width: '0%' }}
-      className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-cyan-500 via-cyan-400 to-cyan-500"
-      style={{
-        boxShadow: '0 0 10px rgba(34, 211, 238, 0.5)',
-      }}
-    />
-    <motion.div
-      className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-left bg-gradient-to-r from-cyan-500 via-cyan-400 to-cyan-500 group-hover:scale-x-100 transition-transform duration-300"
-      style={{
-        boxShadow: '0 0 10px rgba(34, 211, 238, 0.5)',
-      }}
-    />
-  </Link>
-);
-
-const MobileNavLink = ({ to, children, onClick, current, icon: Icon }: { to: string; children: React.ReactNode; onClick: () => void; current: boolean; icon: any }) => (
-  <Link
-    to={to}
-    onClick={onClick}
-    className={`block px-4 py-3 rounded-xl transition-all duration-200 text-center flex items-center justify-center gap-2 ${
-      current
-        ? 'bg-cyan-500/10 text-white border border-cyan-500/20'
-        : 'bg-gray-800/50 text-gray-300 hover:bg-gray-800 hover:text-white border border-gray-800'
-    }`}
-  >
-    <Icon size={16} />
-    {children}
-  </Link>
-);
-
-const DiscordButton = ({ href, title, className }: { href: string; title: string; className: string }) => (
-  <motion.a
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={`group relative flex items-center justify-center w-10 h-10 rounded-xl ${className} 
-      transition-all duration-300`}
-    title={title}
-  >
-    <FaDiscord className="w-5 h-5 text-white" />
-    <span className="absolute -bottom-12 scale-0 transition-all duration-200 group-hover:scale-100 
-      px-3 py-1 rounded-lg text-sm bg-black border border-gray-800 text-white whitespace-nowrap">
-      {title}
-    </span>
-  </motion.a>
-);
-
-const MobileDiscordButton = ({ href, title, className }: { href: string; title: string; className: string }) => (
-  <motion.a
-    whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.95 }}
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={`flex items-center justify-center p-3 rounded-xl ${className} 
-      transition-colors duration-300`}
-  >
-    <FaDiscord className="w-5 h-5 text-white" />
-  </motion.a>
-);
-
-export default Navbar;
+export default Home;
