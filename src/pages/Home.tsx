@@ -60,49 +60,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      <footer className="relative border-t border-cyan-500/20 bg-black/80 backdrop-blur-sm">
-        <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <img src="https://files.catbox.moe/ctb0a1.png" alt="Logo" className="h-8 w-auto" />
-                <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-200">
-                  Artix
-                </span>
-              </div>
-              <p className="text-gray-400 text-sm">
-                The Descriptions.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-cyan-400 font-semibold mb-4">Community</h3>
-              <div className="space-y-3">
-                <a
-                  href="https://discord.gg/pJVdNJ7D3e"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors duration-200"
-                >
-                  <FaDiscord className="w-5 h-5" />
-                  Falcon Discord
-                </a>
-                <a
-                  href="https://discord.gg/4CuKnsaXPc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors duration-200"
-                >
-                  <FaDiscord className="w-5 h-5" />
-                  Astralis Discord
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
