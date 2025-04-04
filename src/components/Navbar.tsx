@@ -28,7 +28,7 @@ const Navbar = () => {
       <nav 
         className={`relative flex items-center justify-between w-full max-w-4xl rounded-2xl transition-all duration-500 px-8 py-4
           ${scrolled 
-            ? 'bg-black/90 backdrop-blur-md border border-gray-800 shadow-lg' 
+            ? 'bg-black backdrop-blur-md border border-gray-800 shadow-lg' 
             : 'bg-black/50 backdrop-blur-sm border border-gray-800/30'
           }`}
       >
@@ -136,15 +136,17 @@ const NavLink = ({ to, children, current, icon: Icon }: { to: string; children: 
     <motion.div
       initial={false}
       animate={current ? { opacity: 1, width: '100%' } : { opacity: 0, width: '0%' }}
-      className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-cyan-500 via-cyan-400 to-cyan-500"
+      className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500"
       style={{
         boxShadow: '0 0 10px rgba(34, 211, 238, 0.5)',
+        filter: 'blur(1px)',
       }}
     />
     <motion.div
-      className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-left bg-gradient-to-r from-cyan-500 via-cyan-400 to-cyan-500 group-hover:scale-x-100 transition-transform duration-300"
+      className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-left bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 group-hover:scale-x-100 transition-transform duration-300"
       style={{
         boxShadow: '0 0 10px rgba(34, 211, 238, 0.5)',
+        filter: 'blur(1px)',
       }}
     />
   </Link>

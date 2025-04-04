@@ -1,14 +1,13 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import { motion } from 'framer-motion';
-import { Terminal, Code2, User, Home as HomeIcon, Users } from 'lucide-react';
+import { Terminal, Code2, User } from 'lucide-react';
 import { FaDiscord } from 'react-icons/fa';
 
 const Home = () => {
   return (
     <div className="bg-black relative">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-cyan-900/10 via-black to-cyan-900/10 pointer-events-none"></div>
-      <div className="absolute inset-0 bg-black/80"></div>
+      <div className="absolute inset-0 bg-black"></div>
       <Hero />
       
       <section className="relative py-32 px-4">
@@ -48,7 +47,7 @@ const Home = () => {
         </div>
       </section>
 
-      <footer className="relative border-t border-gray-800 bg-black/90 backdrop-blur-sm">
+      <footer className="relative border-t border-gray-800 bg-black backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-4">
@@ -112,7 +111,7 @@ const FeatureCard = ({ icon: Icon, title, description, glowColor }: { icon: any;
         y: -5,
         transition: { duration: 0.2 }
       }}
-      className={`relative overflow-hidden rounded-2xl p-8 border border-gray-800 transition-all duration-300 hover:shadow-2xl bg-black/70 backdrop-blur-sm ${glowStyles[glowColor]}`}
+      className={`relative overflow-hidden rounded-2xl p-8 border border-gray-800 transition-all duration-300 hover:shadow-2xl bg-black backdrop-blur-sm ${glowStyles[glowColor]}`}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-gray-800/50 to-transparent pointer-events-none"></div>
       <div className="relative z-10">
