@@ -26,11 +26,11 @@ const Navbar = () => {
       className="fixed w-full z-50 flex justify-center pt-6 px-4"
     >
       <nav 
-        className={`relative flex items-center justify-between w-full max-w-4xl mx-auto rounded-2xl transition-all duration-500 
+        className={`relative flex items-center justify-between w-full max-w-4xl rounded-2xl transition-all duration-500 px-8 py-4
           ${scrolled 
-            ? 'bg-black/90 backdrop-blur-md border border-gray-800 shadow-lg' 
-            : 'bg-black/50 backdrop-blur-sm border border-gray-800/30'
-          } px-4 md:px-8 py-4`}
+            ? 'bg-black/80 backdrop-blur-xl border border-cyan-500/20 shadow-[0_0_30px_-15px_rgba(34,211,238,0.3)]' 
+            : 'bg-black/50 backdrop-blur-md border border-cyan-500/10'
+          }`}
       >
         <Link to="/" className="flex items-center group">
           <motion.img 
@@ -61,34 +61,35 @@ const Navbar = () => {
           <DiscordButton
             href="https://discord.gg/pJVdNJ7D3e"
             title="Join Falcon Discord"
-            className="bg-black hover:bg-gray-900 border border-gray-800 hover:border-gray-700"
+            className="bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/20 hover:border-cyan-500/30"
           />
           <DiscordButton
             href="https://discord.gg/4CuKnsaXPc"
             title="Join Astralis Discord"
-            className="bg-black hover:bg-gray-900 border border-gray-800 hover:border-gray-700"
+            className="bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/20 hover:border-cyan-500/30"
           />
         </div>
 
         <motion.button
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden inline-flex items-center justify-center p-2 rounded-xl bg-black hover:bg-gray-900 
-            transition-colors duration-200 border border-gray-800"
+          className="md:hidden inline-flex items-center justify-center p-2 rounded-xl bg-cyan-500/10 
+            hover:bg-cyan-500/20 transition-colors duration-200 border border-cyan-500/20"
         >
-          {isMenuOpen ? <X size={20} className="text-white" /> : <Menu size={20} className="text-white" />}
+          {isMenuOpen ? <X size={20} className="text-cyan-400" /> : <Menu size={20} className="text-cyan-400" />}
         </motion.button>
 
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ type: "spring", stiffness: 200 }}
+              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className="absolute top-full right-0 left-0 mt-4"
             >
-              <div className="bg-black/95 backdrop-blur-lg rounded-2xl p-4 mx-4 border border-gray-800 shadow-xl">
+              <div className="bg-black/90 backdrop-blur-xl rounded-2xl p-4 mx-4 border border-cyan-500/20 
+                shadow-[0_0_30px_-15px_rgba(34,211,238,0.3)]">
                 <div className="space-y-3">
                   <MobileNavLink to="/" onClick={() => setIsMenuOpen(false)} current={location.pathname === "/"} icon={Home}>
                     Home
@@ -102,16 +103,16 @@ const Navbar = () => {
                   <MobileNavLink to="/developers" onClick={() => setIsMenuOpen(false)} current={location.pathname === "/developers"} icon={Users}>
                     Developers
                   </MobileNavLink>
-                  <div className="flex justify-center gap-4 pt-4 border-t border-gray-800">
+                  <div className="flex justify-center gap-4 pt-4 border-t border-cyan-500/20">
                     <MobileDiscordButton
                       href="https://discord.gg/pJVdNJ7D3e"
                       title="Join Falcon Discord"
-                      className="bg-black hover:bg-gray-900 border border-gray-800"
+                      className="bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/20"
                     />
                     <MobileDiscordButton
                       href="https://discord.gg/4CuKnsaXPc"
                       title="Join Astralis Discord"
-                      className="bg-black hover:bg-gray-900 border border-gray-800"
+                      className="bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/20"
                     />
                   </div>
                 </div>
@@ -127,12 +128,26 @@ const Navbar = () => {
 const NavLink = ({ to, children, current, icon: Icon }: { to: string; children: React.ReactNode; current: boolean; icon: any }) => (
   <Link
     to={to}
-    className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 hover:text-white group flex items-center gap-2 ${
-      current ? 'text-white' : 'text-gray-300'
-    }`}
+    className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 hover:text-cyan-400 group 
+      flex items-center gap-2 ${current ? 'text-cyan-400' : 'text-gray-300'}`}
   >
     <Icon size={16} />
     {children}
+    <motion.div
+      initial={false}
+      animate={current ? { opacity: 1, width: '100%' } : { opacity: 0, width: '0%' }}
+      className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-cyan-500 to-cyan-400"
+      style={{
+        boxShadow: '0 0 10px rgba(34,211,238,0.5)',
+      }}
+    />
+    <motion.div
+      className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-left bg-gradient-to-r 
+        from-cyan-500 to-cyan-400 group-hover:scale-x-100 transition-transform duration-300"
+      style={{
+        boxShadow: '0 0 10px rgba(34,211,238,0.5)',
+      }}
+    />
   </Link>
 );
 
@@ -142,8 +157,8 @@ const MobileNavLink = ({ to, children, onClick, current, icon: Icon }: { to: str
     onClick={onClick}
     className={`block px-4 py-3 rounded-xl transition-all duration-200 text-center flex items-center justify-center gap-2 ${
       current
-        ? 'bg-cyan-500/10 text-white border border-cyan-500/20'
-        : 'bg-gray-800/50 text-gray-300 hover:bg-gray-800 hover:text-white border border-gray-800'
+        ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30'
+        : 'bg-cyan-500/10 text-gray-300 hover:bg-cyan-500/20 hover:text-cyan-400 border border-cyan-500/20'
     }`}
   >
     <Icon size={16} />
@@ -162,9 +177,10 @@ const DiscordButton = ({ href, title, className }: { href: string; title: string
       transition-all duration-300`}
     title={title}
   >
-    <FaDiscord className="w-5 h-5 text-white" />
+    <FaDiscord className="w-5 h-5 text-cyan-400" />
     <span className="absolute -bottom-12 scale-0 transition-all duration-200 group-hover:scale-100 
-      px-3 py-1 rounded-lg text-sm bg-black border border-gray-800 text-white whitespace-nowrap">
+      px-3 py-1 rounded-lg text-sm bg-black/90 border border-cyan-500/20 text-cyan-400 whitespace-nowrap
+      backdrop-blur-xl">
       {title}
     </span>
   </motion.a>
@@ -180,7 +196,7 @@ const MobileDiscordButton = ({ href, title, className }: { href: string; title: 
     className={`flex items-center justify-center p-3 rounded-xl ${className} 
       transition-colors duration-300`}
   >
-    <FaDiscord className="w-5 h-5 text-white" />
+    <FaDiscord className="w-5 h-5 text-cyan-400" />
   </motion.a>
 );
 
