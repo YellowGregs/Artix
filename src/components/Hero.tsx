@@ -65,7 +65,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
           >
-            Experience the next generation of development tools with our powerful ecosystem
+            Just a descriptions.
           </motion.p>
 
           {/* CTA Buttons */}
