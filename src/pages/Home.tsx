@@ -2,7 +2,6 @@ import React from 'react';
 import Hero from '../components/Hero';
 import { motion } from 'framer-motion';
 import { Terminal, Code2, User } from 'lucide-react';
-import { FaDiscord } from 'react-icons/fa';
 
 const Home = () => {
   return (
@@ -21,24 +20,24 @@ const Home = () => {
       
       <Hero />
       
-      <section className="relative py-32 px-4">
+      <section className="relative py-16 md:py-32 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-8 md:mb-16"
           >
-            <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-cyan-200 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-cyan-200 mb-4 md:mb-6">
               About Us
             </h2>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto">
               Nothing
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             <FeatureCard
               icon={Terminal}
               title="Falcon Executor"
@@ -60,25 +59,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      <footer className="relative border-t border-cyan-500/20 bg-black/80 backdrop-blur-sm">
-        <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <img src="https://files.catbox.moe/ctb0a1.png" alt="Logo" className="h-8 w-auto" />
-                <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-200">
-                  Artix
-                </span>
-              </div>
-              <p className="text-gray-400 text-sm">
-                The Descriptions.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
