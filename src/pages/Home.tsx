@@ -27,7 +27,7 @@ const Home = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-cyan-200 mb-6">
-              Features
+              About Artix
             </h2>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
               Discover what makes Artix special
