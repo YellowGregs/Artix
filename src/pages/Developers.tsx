@@ -29,6 +29,7 @@ const apiUrls = {
   ],
   falcon_dev: [
     "https://avatar-cyan.vercel.app/api/773952016036790272",
+    "https://avatar-cyan.vercel.app/api/1085660911857049650",
   ],
 };
 
@@ -38,6 +39,7 @@ const teamDescriptions: Record<string, string> = {
   "1049145878801293473": "Director & Developer of Falcon",
   "1144237011801227294": "Director of Falcon.",
   "773952016036790272": "Developer at Falcon.",
+  "1085660911857049650": "Developer at Falcon",
 };
 
 const teamRoles: Record<string, string> = {
@@ -46,6 +48,7 @@ const teamRoles: Record<string, string> = {
   "1049145878801293473": "DIRECTOR",
   "1144237011801227294": "DIRECTOR",
   "773952016036790272": "DEVELOPER",
+  "1085660911857049650": "DEVELOPER",
 };
 
 const teamSocialLinks: Record<string, { discord?: string, github?: string }> = {
@@ -54,6 +57,7 @@ const teamSocialLinks: Record<string, { discord?: string, github?: string }> = {
   "1049145878801293473": { discord: "itskh4ng" },
   "1144237011801227294": { discord: "aduososo" },
   "773952016036790272": { discord: "yellowgreg", github: "https://github.com/yellowgregs" },
+  "1085660911857049650": { discord: "brenzyyt" },
 };
 
 const Developers = () => {
