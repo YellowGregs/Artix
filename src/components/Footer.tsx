@@ -14,7 +14,7 @@ const Footer = () => {
             className="space-y-4"
           >
             <div className="flex items-center gap-2">
-              <img src="https://files.catbox.moe/ctb0a1.png" alt="Logo" className="h-8 w-auto" />
+              <img src="https://files.catbox.moe/ytpkvk.webp" alt="Logo" className="h-8 w-auto" />
               <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-200">
                 Artix
               </span>
