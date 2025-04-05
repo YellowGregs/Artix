@@ -20,7 +20,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-gray-400 text-sm">
-              The Descriptions.
+              Artix : The Furture Of Game Cheats.
             </p>
           </motion.div>
 
