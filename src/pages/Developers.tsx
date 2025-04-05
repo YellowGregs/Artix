@@ -108,7 +108,7 @@ const Developers = () => {
             transition={{ delay: 0.2 }}
             className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-200 mb-6"
           >
-            Meet Our Team
+            Artix Team
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
