@@ -65,7 +65,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
           >
-            Just a descriptions.
+            Artix : The Furture Of Game Cheats.
           </motion.p>
 
           {/* CTA Buttons */}
