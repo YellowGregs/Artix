@@ -25,6 +25,7 @@ const apiUrls = {
   ],
   falcon_owner: [
     "https://avatar-cyan.vercel.app/api/1144237011801227294",
+    "https://avatar-cyan.vercel.app/api/1049145878801293473",
   ],
   falcon_dev: [
     "https://avatar-cyan.vercel.app/api/773952016036790272",
@@ -34,13 +35,15 @@ const apiUrls = {
 const teamDescriptions: Record<string, string> = {
   "1132054172628435095": "Owner of Artix.",
   "773634385266081832": "Owner of Artix.",
+  "1049145878801293473": "Director & Developer of Falcon"
   "1144237011801227294": "Director of Falcon.",
-  "773952016036790272": "Developer at Falcon."
+  "773952016036790272": "Developer at Falcon.",
 };
 
 const teamRoles: Record<string, string> = {
   "1132054172628435095": "FOUNDER",
   "773634385266081832": "FOUNDER",
+  "1049145878801293473": "DIRECTOR",
   "1144237011801227294": "DIRECTOR",
   "773952016036790272": "DEVELOPER",
 };
@@ -48,6 +51,7 @@ const teamRoles: Record<string, string> = {
 const teamSocialLinks: Record<string, { discord?: string, github?: string }> = {
   "1132054172628435095": { discord: ".bsn_"},
   "773634385266081832": { discord: ".nyxify" },
+  "1049145878801293473": { discord: "itskh4ng" },
   "1144237011801227294": { discord: "aduososo" },
   "773952016036790272": { discord: "yellowgreg", github: "https://github.com/yellowgregs" },
 };
