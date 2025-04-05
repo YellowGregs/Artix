@@ -36,7 +36,7 @@ const Navbar = () => {
           <motion.img 
             whileHover={{ scale: 1.1, rotate: 360 }}
             transition={{ type: "spring", stiffness: 300 }}
-            src="https://files.catbox.moe/ctb0a1.png" 
+            src="https://files.catbox.moe/ytpkvk.webp" 
             alt="Logo" 
             className="h-8 w-auto"
           />
