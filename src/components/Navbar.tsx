@@ -128,13 +128,13 @@ const Navbar = () => {
   );
 };
 
-const NavLink = ({ to, children, current, icon: Icon }: { to: string; children: React.ReactNode; current: boolean; icon: React.ComponentType<React.SVGProps<SVGSVGElement>> }) => (
+const NavLink = ({ to, children, current, icon: Icon }: { to: string; children: React.ReactNode; current: boolean; icon: any }) => (
   <Link
     to={to}
     className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 hover:text-cyan-400 group 
       flex items-center gap-2 ${current ? 'text-cyan-400' : 'text-gray-300'}`}
   >
-    <Icon width={16} height={16} />
+    <Icon size={16} />
     {children}
     <motion.div
       initial={false}
@@ -154,7 +154,7 @@ const NavLink = ({ to, children, current, icon: Icon }: { to: string; children: 
   </Link>
 );
 
-const MobileNavLink = ({ to, children, onClick, current, icon: Icon }: { to: string; children: React.ReactNode; onClick: () => void; current: boolean; icon: React.ComponentType<React.SVGProps<SVGSVGElement>> }) => (
+const MobileNavLink = ({ to, children, onClick, current, icon: Icon }: { to: string; children: React.ReactNode; onClick: () => void; current: boolean; icon: any }) => (
   <Link
     to={to}
     onClick={onClick}
@@ -164,7 +164,7 @@ const MobileNavLink = ({ to, children, onClick, current, icon: Icon }: { to: str
         : 'bg-cyan-500/10 text-gray-300 hover:bg-cyan-500/20 hover:text-cyan-400 border border-cyan-500/20'
     }`}
   >
-    <Icon width={16} height={16} />
+    <Icon size={16} />
     {children}
   </Link>
 );
@@ -198,7 +198,6 @@ const MobileDiscordButton = ({ href, title, className }: { href: string; title: 
     rel="noopener noreferrer"
     className={`flex items-center justify-center p-3 rounded-xl ${className} 
       transition-colors duration-300`}
-    title={title}
   >
     <FaDiscord className="w-5 h-5 text-cyan-400" />
   </motion.a>
