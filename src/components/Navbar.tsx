@@ -23,7 +23,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100 }}
-      className="fixed w-full z-50 flex justify-center pt-4 px-4"
+      className="auto w-full z-50 flex justify-center pt-4 px-4"
     >
       <nav 
         className={`relative flex items-center justify-between w-full max-w-6xl rounded-2xl transition-all duration-500 px-6 py-4
