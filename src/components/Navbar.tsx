@@ -23,16 +23,16 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100 }}
-      className="fixed w-full z-50 flex justify-center pt-6 px-4"
+      className="fixed w-full z-50 flex justify-center pt-4 px-4"
     >
       <nav 
-        className={`relative flex items-center justify-between w-full max-w-4xl rounded-2xl transition-all duration-500 px-8 py-4
+        className={`relative flex items-center justify-between w-full max-w-6xl rounded-2xl transition-all duration-500 px-6 py-4
           ${scrolled 
             ? 'bg-black/80 backdrop-blur-xl border border-cyan-500/20 shadow-[0_0_30px_-15px_rgba(34,211,238,0.3)]' 
             : 'bg-black/50 backdrop-blur-md border border-cyan-500/10'
           }`}
       >
-        <Link to="/" className="flex items-center group">
+        <Link to="/" className="flex items-center gap-2 group">
           <motion.img 
             whileHover={{ scale: 1.1, rotate: 360 }}
             transition={{ type: "spring", stiffness: 300 }}
@@ -40,9 +40,12 @@ const Navbar = () => {
             alt="Logo" 
             className="h-8 w-auto"
           />
+          <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-200">
+            Artix
+          </span>
         </Link>
 
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-6">
           <NavLink to="/" current={location.pathname === "/"} icon={Home}>
             Home
           </NavLink>
@@ -125,24 +128,24 @@ const Navbar = () => {
   );
 };
 
-const NavLink = ({ to, children, current, icon: Icon }: { to: string; children: React.ReactNode; current: boolean; icon: any }) => (
+const NavLink = ({ to, children, current, icon: Icon }: { to: string; children: React.ReactNode; current: boolean; icon: React.ComponentType<React.SVGProps<SVGSVGElement>> }) => (
   <Link
     to={to}
-    className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 hover:text-cyan-400 group 
+    className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 hover:text-cyan-400 group 
       flex items-center gap-2 ${current ? 'text-cyan-400' : 'text-gray-300'}`}
   >
-    <Icon size={16} />
+    <Icon width={16} height={16} />
     {children}
     <motion.div
       initial={false}
       animate={current ? { opacity: 1, width: '100%' } : { opacity: 0, width: '0%' }}
-      className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-cyan-500 to-cyan-400"
+      className="absolute -bottom-[18px] left-0 h-[2px] bg-gradient-to-r from-cyan-500 to-cyan-400"
       style={{
         boxShadow: '0 0 10px rgba(34,211,238,0.5)',
       }}
     />
     <motion.div
-      className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-left bg-gradient-to-r 
+      className="absolute -bottom-[18px] left-0 h-[2px] w-full scale-x-0 origin-left bg-gradient-to-r 
         from-cyan-500 to-cyan-400 group-hover:scale-x-100 transition-transform duration-300"
       style={{
         boxShadow: '0 0 10px rgba(34,211,238,0.5)',
@@ -151,7 +154,7 @@ const NavLink = ({ to, children, current, icon: Icon }: { to: string; children: 
   </Link>
 );
 
-const MobileNavLink = ({ to, children, onClick, current, icon: Icon }: { to: string; children: React.ReactNode; onClick: () => void; current: boolean; icon: any }) => (
+const MobileNavLink = ({ to, children, onClick, current, icon: Icon }: { to: string; children: React.ReactNode; onClick: () => void; current: boolean; icon: React.ComponentType<React.SVGProps<SVGSVGElement>> }) => (
   <Link
     to={to}
     onClick={onClick}
@@ -161,7 +164,7 @@ const MobileNavLink = ({ to, children, onClick, current, icon: Icon }: { to: str
         : 'bg-cyan-500/10 text-gray-300 hover:bg-cyan-500/20 hover:text-cyan-400 border border-cyan-500/20'
     }`}
   >
-    <Icon size={16} />
+    <Icon width={16} height={16} />
     {children}
   </Link>
 );
@@ -195,6 +198,7 @@ const MobileDiscordButton = ({ href, title, className }: { href: string; title: 
     rel="noopener noreferrer"
     className={`flex items-center justify-center p-3 rounded-xl ${className} 
       transition-colors duration-300`}
+    title={title}
   >
     <FaDiscord className="w-5 h-5 text-cyan-400" />
   </motion.a>
