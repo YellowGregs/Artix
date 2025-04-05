@@ -39,7 +39,7 @@ const Hero = () => {
                 className="relative"
               >
                 <img 
-                  src="https://files.catbox.moe/ctb0a1.png" 
+                  src="https://files.catbox.moe/ytpkvk.webp" 
                   alt="Artix Logo" 
                   className="w-32 h-32 md:w-40 md:h-40 object-contain relative z-10"
                 />
