@@ -35,7 +35,7 @@ const apiUrls = {
 const teamDescriptions: Record<string, string> = {
   "1132054172628435095": "Owner of Artix.",
   "773634385266081832": "Owner of Artix.",
-  "1049145878801293473": "Director & Developer of Falcon"
+  "1049145878801293473": "Director & Developer of Falcon",
   "1144237011801227294": "Director of Falcon.",
   "773952016036790272": "Developer at Falcon.",
 };
