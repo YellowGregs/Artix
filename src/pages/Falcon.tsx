@@ -120,7 +120,7 @@ const Falcon = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+{/*           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FeatureCard
               icon={Shield}
               title="Title"
@@ -136,7 +136,7 @@ const Falcon = () => {
               title="Title"
               description="Description."
             />
-          </div>
+          </div> */}
         </div>
       </section>
 
