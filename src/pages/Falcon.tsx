@@ -13,6 +13,11 @@ const Falcon = () => {
     type: 'success' as const,
   });
 
+  const download = {
+    mobile: "",
+    window: "",
+  };
+
   const download_executor = () => {
     setNotification({
       show: true,
@@ -133,6 +138,42 @@ const Falcon = () => {
               description="Description."
             />
           </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-black/80 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Download Executor</h2>
+          <table className="min-w-full divide-y divide-gray-700">
+            <thead>
+              <tr>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                  Platform
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                  Download Link
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-700">
+              <tr>
+                <td className="px-6 py-4 whitespace-nowrap">Mobile</td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <a href={download.mobile} className="text-cyan-400 hover:underline" target="_blank" rel="noopener noreferrer">
+                    Download for Mobile
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-6 py-4 whitespace-nowrap">Window</td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <a href={download.window} className="text-cyan-400 hover:underline" target="_blank" rel="noopener noreferrer">
+                    Download for Window
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
