@@ -12,7 +12,7 @@ interface Developer {
   github?: string;
 }
 
-interface ImageModalState {
+interface Image_Modal {
   isOpen: boolean;
   imageUrl: string;
   userName: string;
@@ -28,41 +28,45 @@ const apiUrls = {
     "https://avatar-cyan.vercel.app/api/1049145878801293473",
   ],
   falcon_dev: [
+    "https://avatar-cyan.vercel.app/api/958005172926304346",
     "https://avatar-cyan.vercel.app/api/773952016036790272",
     "https://avatar-cyan.vercel.app/api/1085660911857049650",
   ],
 };
 
-const teamDescriptions: Record<string, string> = {
+const Descriptions: Record<string, string> = {
   "1132054172628435095": "Owner of Artix.",
   "773634385266081832": "Owner of Artix.",
   "1049145878801293473": "Director & Developer of Falcon",
   "1144237011801227294": "Director of Falcon.",
+  "958005172926304346": "Developer at Falcon",
   "773952016036790272": "Developer at Falcon.",
   "1085660911857049650": "Developer at Falcon",
 };
 
-const teamRoles: Record<string, string> = {
+const Roles: Record<string, string> = {
   "1132054172628435095": "FOUNDER",
   "773634385266081832": "FOUNDER",
   "1049145878801293473": "DIRECTOR",
   "1144237011801227294": "DIRECTOR",
+  "958005172926304346": "DEVELOPER",
   "773952016036790272": "DEVELOPER",
   "1085660911857049650": "DEVELOPER",
 };
 
-const teamSocialLinks: Record<string, { discord?: string, github?: string }> = {
+const Social_Links: Record<string, { discord?: string, github?: string }> = {
   "1132054172628435095": { discord: ".bsn_"},
   "773634385266081832": { discord: ".nyxify" },
   "1049145878801293473": { discord: "itskh4ng" },
   "1144237011801227294": { discord: "aduososo" },
+  "958005172926304346": { discord: "_nath.zi" },
   "773952016036790272": { discord: "yellowgreg", github: "https://github.com/yellowgregs" },
   "1085660911857049650": { discord: "brenzyyt" },
 };
 
 const Developers = () => {
   const [developers, setDevelopers] = useState<Developer[]>([]);
-  const [imageModal, setImageModal] = useState<ImageModalState>({
+  const [imageModal, setImageModal] = useState<Image_Modal>({
     isOpen: false,
     imageUrl: '',
     userName: '',
@@ -78,11 +82,11 @@ const Developers = () => {
             const userId = data.id;
             return {
               name: data.display_name,
-              role: teamRoles[userId] || "MEMBER",
+              role: Roles[userId] || "MEMBER",
               image: data.avatarUrl,
-              description: teamDescriptions[userId] || "Member of the Falcon & Astralis Team",
-              discord: teamSocialLinks[userId]?.discord,
-              github: teamSocialLinks[userId]?.github,
+              description: Descriptions[userId] || "Member of the Falcon & Astralis Team",
+              discord: Social_Links[userId]?.discord,
+              github: Social_Links[userId]?.github,
             };
           })
         )
