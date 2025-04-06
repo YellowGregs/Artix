@@ -73,8 +73,8 @@ const Developers = () => {
   });
 
   useEffect(() => {
-    const fetchDevelopers = async () => {
-      const fetchedDevelopers = await Promise.all(
+    const fetch = async () => {
+      const fetched = await Promise.all(
         Object.entries(apiUrls).flatMap(([role, urls]) =>
           urls.map(async (url) => {
             const response = await fetch(url);
@@ -91,10 +91,10 @@ const Developers = () => {
           })
         )
       );
-      setDevelopers(fetchedDevelopers);
+      setDevelopers(fetched);
     };
 
-    fetchDevelopers();
+    fetch();
   }, []);
 
   return (
