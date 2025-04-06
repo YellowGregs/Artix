@@ -58,9 +58,9 @@ const Falcon = () => {
                 <CheckCircle size={16} />
                 Working
               </span>
-              <span className="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium border border-cyan-500/20">
+{/*               <span className="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium border border-cyan-500/20">
                 Version 1.0.0
-              </span>
+              </span> */}
             </div>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Falcon Executor</h1>
