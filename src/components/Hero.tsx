@@ -8,7 +8,6 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 w-full">
-      {/* Gradient Blobs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-[800px] h-[800px] -top-[200px] -right-[200px] rounded-full 
           bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.15),transparent_70%)] 
@@ -25,7 +24,6 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="text-center space-y-12"
         >
-          {/* Logo Section */}
           <motion.div 
             className="flex flex-col items-center space-y-8"
             initial={{ scale: 0.9, opacity: 0 }}
@@ -58,7 +56,6 @@ const Hero = () => {
             </motion.h1>
           </motion.div>
 
-          {/* Description */}
           <motion.p 
             className="text-lg md:text-xl lg:text-2xl text-gray-300/90 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0 }}
@@ -68,7 +65,6 @@ const Hero = () => {
             Artix : The Furture Of Game Cheats.
           </motion.p>
 
-          {/* CTA Buttons */}
           <motion.div 
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
             initial={{ opacity: 0, y: 20 }}
