@@ -13,12 +13,16 @@ const Falcon = () => {
     type: 'success' as const,
   });
 
-  const download_executor = () => {
-    setNotification({
-      show: true,
-      message: 'Download W.I.P.',
-      type: 'warning',
-    });
+  const download_executor = (platform: 'windows' | 'mobile') => {
+    if (platform === 'mobile') {
+      window.location.href = 'https://easyupload.io/a78rxq';
+    } else {
+      setNotification({
+        show: true,
+        message: 'Windows download coming soon!',
+        type: 'warning',
+      });
+    }
   };
 
   return (
