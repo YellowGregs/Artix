@@ -63,10 +63,10 @@ const DownloadModal = ({ isOpen, onClose, onDownload }: DownloadModalProps) => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setSelectedPlatform('windows')}
-                className={flex flex-col items-center gap-3 p-4 rounded-xl border transition-all duration-200
+                className={`flex flex-col items-center gap-3 p-4 rounded-xl border transition-all duration-200
                   ${selectedPlatform === 'windows' 
                     ? 'bg-blue-500/20 border-blue-500/30 text-blue-400' 
-                    : 'bg-gray-800/50 border-gray-700 text-gray-400 hover:text-white hover:border-gray-600'}}
+                    : 'bg-gray-800/50 border-gray-700 text-gray-400 hover:text-white hover:border-gray-600'}`}
               >
                 <Monitor className="w-8 h-8" />
                 <span className="font-medium">Windows</span>
@@ -76,10 +76,10 @@ const DownloadModal = ({ isOpen, onClose, onDownload }: DownloadModalProps) => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setSelectedPlatform('mobile')}
-                className={flex flex-col items-center gap-3 p-4 rounded-xl border transition-all duration-200
+                className={`flex flex-col items-center gap-3 p-4 rounded-xl border transition-all duration-200
                   ${selectedPlatform === 'mobile' 
                     ? 'bg-blue-500/20 border-blue-500/30 text-blue-400' 
-                    : 'bg-gray-800/50 border-gray-700 text-gray-400 hover:text-white hover:border-gray-600'}}
+                    : 'bg-gray-800/50 border-gray-700 text-gray-400 hover:text-white hover:border-gray-600'}`}
               >
                 <Smartphone className="w-8 h-8" />
                 <span className="font-medium">Mobile</span>
@@ -116,10 +116,10 @@ const DownloadModal = ({ isOpen, onClose, onDownload }: DownloadModalProps) => {
                   }
                 }}
                 disabled={!selectedPlatform}
-                className={flex-1 px-4 py-2 rounded-xl transition-all duration-200
+                className={`flex-1 px-4 py-2 rounded-xl transition-all duration-200
                   ${selectedPlatform 
                     ? 'bg-blue-500/20 text-blue-400 hover:bg-blue-500/30 border border-blue-500/30' 
-                    : 'bg-gray-800/50 text-gray-500 border border-gray-700 cursor-not-allowed'}}
+                    : 'bg-gray-800/50 text-gray-500 border border-gray-700 cursor-not-allowed'}`}
               >
                 Download
               </motion.button>
