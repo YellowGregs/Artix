@@ -106,7 +106,7 @@ const Falcon = () => {
         </div>
       </div>
 
-      <section className="py-20 bg-black/80 backdrop-blur-sm relative">
+{/*       <section className="py-20 bg-black/80 backdrop-blur-sm relative">
         <div className="max-w-6xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -120,7 +120,7 @@ const Falcon = () => {
             </p>
           </motion.div>
 
-{/*           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FeatureCard
               icon={Shield}
               title="Title"
@@ -136,9 +136,9 @@ const Falcon = () => {
               title="Title"
               description="Description."
             />
-          </div> */}
+          </div>
         </div>
-      </section>
+      </section> */}
 
       <DownloadModal
         isOpen={isModalOpen}
