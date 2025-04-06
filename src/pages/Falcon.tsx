@@ -70,7 +70,7 @@ const Falcon = () => {
               Nothing
             </p>
             <div className="flex flex-col items-center gap-4">
-              <motion.button
+{/*               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setShowPassword(!showPassword)}
@@ -89,7 +89,7 @@ const Falcon = () => {
                 >
                   Password: <span className="font-mono bg-black px-2 py-1 rounded border border-gray-800">urdad</span>
                 </motion.div>
-              )}
+              )} */}
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
