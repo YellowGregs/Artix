@@ -5,7 +5,7 @@ import { X, Download, CheckCircle, AlertTriangle, Smartphone, Monitor } from 'lu
 interface DownloadModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onDownload: () => void;
+  onDownload: (platform: 'windows' | 'mobile') => void;
 }
 
 const DownloadModal = ({ isOpen, onClose, onDownload }: DownloadModalProps) => {
@@ -111,7 +111,7 @@ const DownloadModal = ({ isOpen, onClose, onDownload }: DownloadModalProps) => {
                 whileTap={{ scale: 0.98 }}
                 onClick={() => {
                   if (selectedPlatform) {
-                    onDownload();
+                    onDownload(selectedPlatform);
                     onClose();
                   }
                 }}
