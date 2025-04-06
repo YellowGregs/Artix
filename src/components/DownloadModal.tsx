@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Download, CheckCircle, AlertTriangle, Smartphone, Monitor } from 'lucide-react';
 
+const downloadLinks = {
+  mobile: "",
+  windows: "",
+};
+
 interface DownloadModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -84,6 +89,35 @@ const DownloadModal = ({ isOpen, onClose, onDownload }: DownloadModalProps) => {
                 <Smartphone className="w-8 h-8" />
                 <span className="font-medium">Mobile</span>
               </motion.button>
+            </div>
+
+            <div className="mb-6">
+              <table className="min-w-full text-sm text-left text-gray-400">
+                <thead className="text-xs uppercase bg-gray-700 text-gray-300">
+                  <tr>
+                    <th scope="col" className="px-4 py-2">Platform</th>
+                    <th scope="col" className="px-4 py-2">Download Link</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-gray-800 border-b border-gray-700">
+                    <td className="px-4 py-2">Mobile</td>
+                    <td className="px-4 py-2">
+                      <a href={downloadLinks.mobile} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
+                        Download
+                      </a>
+                    </td>
+                  </tr>
+                  <tr className="bg-gray-800">
+                    <td className="px-4 py-2">Windows</td>
+                    <td className="px-4 py-2">
+                      <a href={downloadLinks.windows} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
+                        Download
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
 
             <div className="space-y-4 mb-6">
