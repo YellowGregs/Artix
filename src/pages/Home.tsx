@@ -71,13 +71,11 @@ const FeatureCard = ({ icon: Icon, title, description, delay }: { icon: any; tit
       className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-black to-black/50 
         border border-cyan-500/20 p-6 md:p-8 transition-all duration-300"
     >
-      {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 
         group-hover:opacity-100 transition-opacity duration-300"></div>
       <div className="absolute inset-0 bg-gradient-radial from-cyan-500/5 via-transparent to-transparent opacity-0 
         group-hover:opacity-100 transition-opacity duration-300"></div>
       
-      {/* Content */}
       <div className="relative z-10">
         <div className="flex items-center gap-4 mb-4 md:mb-6">
           <motion.div
@@ -98,7 +96,6 @@ const FeatureCard = ({ icon: Icon, title, description, delay }: { icon: any; tit
         </p>
       </div>
 
-      {/* Hover Effect */}
       <div className="absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300
         bg-gradient-to-r from-cyan-500/20 via-cyan-500/10 to-transparent blur-xl pointer-events-none"></div>
     </motion.div>
