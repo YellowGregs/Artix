@@ -13,10 +13,10 @@ const Falcon = () => {
     type: 'success' as const,
   });
 
-  const downloadExecutor = () => {
+  const download_executor = () => {
     setNotification({
       show: true,
-      message: 'Download is still in development',
+      message: 'Download W.I.P.',
       type: 'warning',
     });
   };
@@ -101,7 +101,7 @@ const Falcon = () => {
       <DownloadModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        onDownload={downloadExecutor}
+        onDownload={download_executor}
       />
 
       <NotificationToast
