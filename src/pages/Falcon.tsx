@@ -23,6 +23,17 @@ const Falcon = () => {
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center px-4">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute w-[800px] h-[800px] -top-[200px] -right-[200px] rounded-full 
+          bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15),transparent_70%)] 
+          blur-3xl opacity-70 animate-blob"></div>
+        <div className="absolute w-[600px] h-[600px] -bottom-[100px] -left-[100px] rounded-full 
+          bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.2),transparent_70%)] 
+          blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M1%201h2v2H1V1zm4%200h2v2H5V1zm4%200h2v2H9V1zm4%200h2v2h-2V1zm4%200h2v2h-2V1z%22%20fill%3D%22rgba(255%2C255%2C255%2C0.03)%22%2F%3E%3C%2Fsvg%3E')] opacity-20">
+        </div>
+      </div>
+
       <div className="max-w-6xl w-full py-32 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +41,19 @@ const Falcon = () => {
           className="text-center mb-16"
         >
           <div className="inline-block">
-            <div className="flex items-center gap-3 mb-6">
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="w-24 h-24 mx-auto mb-8"
+            >
+              <img
+                src="https://files.catbox.moe/ctb0a1.png"
+                alt="Falcon Logo"
+                className="w-full h-full object-contain"
+              />
+            </motion.div>
+            <div className="flex flex-wrap justify-center items-center gap-3 mb-6">
               <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-sm font-medium border border-green-500/20 flex items-center gap-2">
                 <CheckCircle size={16} />
                 Working
@@ -111,7 +134,7 @@ const Falcon = () => {
         onClose={() => setNotification({ ...notification, show: false })}
       />
     </div>
-  );
+  )
 };
 
 const FeatureCard = ({ icon: Icon, title, description }: { icon: any; title: string; description: string }) => (
