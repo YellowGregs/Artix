@@ -6,18 +6,9 @@ import { Terminal, Shield, Zap } from 'lucide-react';
 const Home = () => {
   return (
     <div className="bg-black relative">
-      {/* <div className="absolute inset-0 bg-black">
-        <div className="absolute w-[1000px] h-[1000px] -top-[400px] -right-[400px] rounded-full 
-          bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.1),transparent_70%)] 
-          blur-3xl opacity-60 animate-blob"></div>
-        <div className="absolute w-[800px] h-[800px] top-[200px] -left-[300px] rounded-full 
-          bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.08),transparent_70%)] 
-          blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
-      </div> */}
-      
       <Hero />
       
-      <section className="relative py-20 md:py-32 px-4">
+{/*       <section className="relative py-20 md:py-32 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -55,7 +46,7 @@ const Home = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
