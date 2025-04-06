@@ -31,14 +31,14 @@ const Astralis = () => {
                 <AlertTriangle size={16} />
                 Work in Progress
               </motion.span>
-              <motion.span 
+{/*               <motion.span 
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3 }}
                 className="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium border border-cyan-500/20"
               >
                 Version 1.0.0
-              </motion.span>
+              </motion.span> */}
             </div>
           </div>
           <motion.h1 
