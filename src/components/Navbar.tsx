@@ -28,8 +28,8 @@ const Navbar = () => {
       <nav 
         className={`relative flex items-center justify-between w-full max-w-6xl rounded-2xl transition-all duration-500 px-6 py-4
           ${scrolled 
-            ? 'bg-black/80 backdrop-blur-xl border border-white/10 shadow-[0_0_30px_-15px_rgba(255,255,255,0.3)]' 
-            : 'bg-black/50 backdrop-blur-md border border-white/5'
+            ? 'bg-black/40 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]' 
+            : 'bg-black/20 backdrop-blur-sm border border-white/5'
           }`}
       >
         <Link to="/" className="flex items-center gap-2 group">
@@ -64,22 +64,22 @@ const Navbar = () => {
           <DiscordButton
             href="https://discord.gg/pJVdNJ7D3e"
             title="Join Falcon Discord"
-            className="bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/20 hover:border-cyan-500/30"
+            className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20"
           />
           <DiscordButton
             href="https://discord.gg/4CuKnsaXPc"
             title="Join Astralis Discord"
-            className="bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/20 hover:border-cyan-500/30"
+            className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20"
           />
         </div>
 
         <motion.button
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden inline-flex items-center justify-center p-2 rounded-xl bg-cyan-500/10 
-            hover:bg-cyan-500/20 transition-colors duration-200 border border-cyan-500/20"
+          className="md:hidden inline-flex items-center justify-center p-2 rounded-xl bg-white/5 
+            hover:bg-white/10 transition-colors duration-200 border border-white/10"
         >
-          {isMenuOpen ? <X size={20} className="text-cyan-400" /> : <Menu size={20} className="text-cyan-400" />}
+          {isMenuOpen ? <X size={20} className="text-white" /> : <Menu size={20} className="text-white" />}
         </motion.button>
 
         <AnimatePresence>
@@ -91,8 +91,8 @@ const Navbar = () => {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className="absolute top-full right-0 left-0 mt-4"
             >
-              <div className="bg-black/90 backdrop-blur-xl rounded-2xl p-4 mx-4 border border-white/10 
-                shadow-[0_0_30px_-15px_rgba(255,255,255,0.3)]">
+              <div className="bg-black/60 backdrop-blur-xl rounded-2xl p-4 mx-4 border border-white/10 
+                shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
                 <div className="space-y-3">
                   <MobileNavLink to="/" onClick={() => setIsMenuOpen(false)} current={location.pathname === "/"} icon={Home}>
                     Home
@@ -110,12 +110,12 @@ const Navbar = () => {
                     <MobileDiscordButton
                       href="https://discord.gg/pJVdNJ7D3e"
                       title="Join Falcon Discord"
-                      className="bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/20"
+                      className="bg-white/5 hover:bg-white/10 border border-white/10"
                     />
                     <MobileDiscordButton
                       href="https://discord.gg/4CuKnsaXPc"
                       title="Join Astralis Discord"
-                      className="bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/20"
+                      className="bg-white/5 hover:bg-white/10 border border-white/10"
                     />
                   </div>
                 </div>
@@ -139,16 +139,16 @@ const NavLink = ({ to, children, current, icon: Icon }: { to: string; children: 
     <motion.div
       initial={false}
       animate={current ? { opacity: 1, width: '100%' } : { opacity: 0, width: '0%' }}
-      className="absolute -bottom-[18px] left-0 h-[2px] bg-gradient-to-r from-white to-cyan-400"
+      className="absolute -bottom-[18px] left-0 h-[2px] bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400"
       style={{
-        boxShadow: '0 0 10px rgba(255,255,255,0.5)',
+        boxShadow: '0 0 10px rgba(255,255,255,0.3)',
       }}
     />
     <motion.div
       className="absolute -bottom-[18px] left-0 h-[2px] w-full scale-x-0 origin-left bg-gradient-to-r 
-        from-white to-cyan-400 group-hover:scale-x-100 transition-transform duration-300"
+        from-cyan-400 via-purple-400 to-pink-400 group-hover:scale-x-100 transition-transform duration-300"
       style={{
-        boxShadow: '0 0 10px rgba(255,255,255,0.5)',
+        boxShadow: '0 0 10px rgba(255,255,255,0.3)',
       }}
     />
   </Link>
@@ -160,8 +160,8 @@ const MobileNavLink = ({ to, children, onClick, current, icon: Icon }: { to: str
     onClick={onClick}
     className={`block px-4 py-3 rounded-xl transition-all duration-200 text-center flex items-center justify-center gap-2 ${
       current
-        ? 'bg-cyan-500/20 text-white border border-cyan-500/30'
-        : 'bg-cyan-500/10 text-gray-300 hover:bg-cyan-500/20 hover:text-white border border-cyan-500/20'
+        ? 'bg-white/10 text-white border border-white/20'
+        : 'bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white border border-white/10'
     }`}
   >
     <Icon size={16} />
@@ -180,7 +180,7 @@ const DiscordButton = ({ href, title, className }: { href: string; title: string
       transition-all duration-300`}
     title={title}
   >
-    <FaDiscord className="w-5 h-5 text-cyan-400" />
+    <FaDiscord className="w-5 h-5 text-white/70 group-hover:text-white transition-colors duration-300" />
     <span className="absolute -bottom-12 scale-0 transition-all duration-200 group-hover:scale-100 
       px-3 py-1 rounded-lg text-sm bg-black/90 border border-white/10 text-white whitespace-nowrap
       backdrop-blur-xl">
@@ -199,7 +199,7 @@ const MobileDiscordButton = ({ href, title, className }: { href: string; title: 
     className={`flex items-center justify-center p-3 rounded-xl ${className} 
       transition-colors duration-300`}
   >
-    <FaDiscord className="w-5 h-5 text-cyan-400" />
+    <FaDiscord className="w-5 h-5 text-white/70 group-hover:text-white transition-colors duration-300" />
   </motion.a>
 );
 

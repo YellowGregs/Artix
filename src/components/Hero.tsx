@@ -10,10 +10,10 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center px-4 w-full">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-[800px] h-[800px] -top-[200px] -right-[200px] rounded-full 
-          bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.15),transparent_70%)] 
+          bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1),transparent_70%)] 
           blur-3xl opacity-70 animate-blob"></div>
         <div className="absolute w-[600px] h-[600px] -bottom-[100px] -left-[100px] rounded-full 
-          bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.1),transparent_70%)] 
+          bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.15),transparent_70%)] 
           blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
       </div>
 
@@ -41,12 +41,13 @@ const Hero = () => {
                   alt="Artix Logo" 
                   className="w-32 h-32 md:w-40 md:h-40 object-contain relative z-10"
                 />
-                <div className="absolute inset-0 bg-cyan-500/20 rounded-full filter blur-2xl 
-                  group-hover:blur-3xl transition-all duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-cyan-500/20 rounded-full filter blur-2xl 
+                  opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
               </motion.div>
             </div>
             <motion.h1 
-              className="text-5xl md:text-7xl lg:text-8xl font-bold text-white"
+              className="text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-clip-text 
+                bg-gradient-to-r from-white via-cyan-200 to-white"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -61,7 +62,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
           >
-            Artix : The Furture Of Game Cheats.
+            Artix : The Future Of Game Cheats
           </motion.p>
 
           <motion.div 
