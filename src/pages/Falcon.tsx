@@ -15,7 +15,7 @@ const Falcon = () => {
 
   const download_executor = (platform: 'windows' | 'mobile') => {
     if (platform === 'mobile') {
-      window.location.href = 'https://easyupload.io/a78rxq';
+      window.location.href = 'https://gofile.io/d/uATOtj';
     } else {
       setNotification({
         show: true,
