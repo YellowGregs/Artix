@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Falcon from './pages/Falcon';
-import Astralis from './pages/Astralis';
+import Astralis from './pages/DexHub';
 import Developers from './pages/Developers';
 
 function App() {
