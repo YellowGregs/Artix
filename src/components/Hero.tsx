@@ -95,7 +95,7 @@ const Hero = () => {
             >
               <span className="flex items-center justify-center gap-3 text-cyan-400 group-hover:text-cyan-300 transition-colors">
                 <Code2 className="w-5 h-5" />
-                Astralis
+                Dex Hub
               </span>
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-transparent 
                 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10"></div>
