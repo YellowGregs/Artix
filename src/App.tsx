@@ -16,7 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/falcon" element={<Falcon />} />
-            <Route path="/dexhub" element={<DexHub />} />
+            <Route path="/dexhub" element={<DexHubs />} />
             <Route path="/developers" element={<Developers />} />
           </Routes>
         </main>
