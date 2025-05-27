@@ -52,7 +52,7 @@ const Navbar = () => {
           <NavLink to="/falcon" current={location.pathname === "/falcon"} icon={Terminal}>
             Falcon
           </NavLink>
-          <NavLink to="/dexhub" current={location.pathname === "/dexhub"} icon={Code2}>
+          <NavLink to="/astralis" current={location.pathname === "/astralis"} icon={Code2}>
             Dex Hub
           </NavLink>
           <NavLink to="/developers" current={location.pathname === "/developers"} icon={Users}>
@@ -100,7 +100,7 @@ const Navbar = () => {
                   <MobileNavLink to="/falcon" onClick={() => setIsMenuOpen(false)} current={location.pathname === "/falcon"} icon={Terminal}>
                     Falcon
                   </MobileNavLink>
-                  <MobileNavLink to="/dexhub" onClick={() => setIsMenuOpen(false)} current={location.pathname === "/dexhub"} icon={Code2}>
+                  <MobileNavLink to="/astralis" onClick={() => setIsMenuOpen(false)} current={location.pathname === "/astralis"} icon={Code2}>
                     Dex Hub
                   </MobileNavLink>
                   <MobileNavLink to="/developers" onClick={() => setIsMenuOpen(false)} current={location.pathname === "/developers"} icon={Users}>
