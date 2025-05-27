@@ -67,7 +67,7 @@ const Navbar = () => {
             className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20"
           />
           <DiscordButton
-            href="https://discord.gg/4CuKnsaXPc"
+            href=""
             title="Join DexHub Discord"
             className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20"
           />
