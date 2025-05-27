@@ -67,7 +67,7 @@ const Navbar = () => {
             className="bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/20 hover:border-cyan-500/30"
           />
           <DiscordButton
-            href="https://discord.gg/4CuKnsaXPc"
+            href=""
             title="Join DexHub Discord"
             className="bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/20 hover:border-cyan-500/30"
           />
