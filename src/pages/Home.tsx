@@ -110,7 +110,7 @@ const Home = () => {
             >
               <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text 
                 bg-gradient-to-r from-white via-cyan-200 to-white mb-6">
-                Dex Hub
+                Astralis
               </h2>
               <p className="text-gray-300 text-lg max-w-2xl mx-auto">
                 Find and execute your favorite scripts with ease
