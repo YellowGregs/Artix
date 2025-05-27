@@ -22,7 +22,7 @@ interface Script {
 
 type FilterType = 'all' | 'verified' | 'unverified' | 'newest' | 'oldest' | 'mostviewed';
 
-const Dexs = () => {
+const astralis = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [submittedSearchQuery, setSubmittedSearchQuery] = useState('');
   const [scripts, setScripts] = useState<Script[]>([]);
@@ -85,12 +85,10 @@ const Dexs = () => {
       }
   
       if (!res.ok) {
-        // other HTTP errors
         const text = await res.text();
         throw new Error(`HTTP ${res.status}: ${text}`);
       }
   
-      // Safe JSON parse
       let data: any;
       try {
         data = await res.json();
@@ -98,7 +96,6 @@ const Dexs = () => {
         throw new Error('Invalid JSON in response');
       }
   
-      // Guard against missing fields
       if (
         !data.result ||
         !Array.isArray(data.result.scripts) ||
@@ -371,4 +368,4 @@ const Dexs = () => {
   );
 };
 
-export default Dexs;
+export default astralis;
