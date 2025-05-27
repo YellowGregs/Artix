@@ -176,7 +176,7 @@ const astralis = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Dex Hub</h1>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Astralis</h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-8">
             Search and discover scripts for your favorite games
           </p>
