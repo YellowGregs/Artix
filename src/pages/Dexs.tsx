@@ -22,7 +22,7 @@ interface Script {
 
 type FilterType = 'all' | 'verified' | 'unverified' | 'newest' | 'oldest' | 'mostviewed';
 
-const DexHub = () => {
+const Dexs = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [submittedSearchQuery, setSubmittedSearchQuery] = useState('');
   const [scripts, setScripts] = useState<Script[]>([]);
@@ -371,4 +371,4 @@ const DexHub = () => {
   );
 };
 
-export default DexHub;
+export default Dexs;
