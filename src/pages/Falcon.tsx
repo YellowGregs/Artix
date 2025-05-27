@@ -13,17 +13,26 @@ const Falcon = () => {
     type: 'success' as const,
   });
 
+  // const download_executor = (platform: 'windows' | 'mobile') => {
+  //   if (platform === 'mobile') {
+  //     window.location.href = '';
+  //   } else {
+  //     setNotification({
+  //       show: true,
+  //       message: 'Windows download coming soon!',
+  //       type: 'warning',
+  //     });
+  //   }
+  // };
+
   const download_executor = (platform: 'windows' | 'mobile') => {
-    if (platform === 'mobile') {
-      window.location.href = 'https://gofile.io/d/uATOtj';
-    } else {
-      setNotification({
-        show: true,
-        message: 'Windows download coming soon!',
-        type: 'warning',
-      });
-    }
-  };
+  if (platform === 'mobile') {
+    window.location.href = ''; //  mobile download link
+  } else {
+    window.location.href = ''; // Windows download link
+  }
+};
+
 
   return (
     <>
