@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Falcon from './pages/Falcon';
-import Astralis from './pages/Astralis';
+import Astra from './pages/Astralis';
 import Developers from './pages/Developers';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/falcon" element={<Falcon />} />
-            <Route path="/astralis" element={<Astralis />} />
+            <Route path="/astralis" element={<Astra />} />
             <Route path="/developers" element={<Developers />} />
           </Routes>
         </main>
